@@ -6,11 +6,12 @@
 A simple case of ARMAX process is:
 
 &nbsp;&nbsp;&nbsp;&nbsp;
-<img src="http://www.sciweavers.org/tex2img.php?eq=y_t%20%3D%20%7B%5Cbeta%7Dx_t%2B%20%5Cphi%20y_%7Bt-1%7D%2B%20%7B%5Cepsilon%7D_t%20&bc=White&fc=Black&im=png&fs=18&ff=mathdesign&edit=0" align="center" border="0" alt="y_t = {\beta}x_t+ \phi y_{t-1}+ {\epsilon}_t " width="229" height="27" />
-
-where <img src="http://www.sciweavers.org/tex2img.php?eq=x_t&bc=White&fc=Black&im=png&fs=12&ff=mathdesign&edit=0" align="center" border="0" alt="x_t" width="20" height="14" /> is a covariate. For concreteness, let us consider the following data set:
+<p align="center">
+  <img src="ARMAX.png",width="50",height="50">
+</p> 
+where `x` is a covariate. For concreteness, let us consider the following data set:
 
 <p align="center">
-  <img src="datasetpic.png">
+  <img src="datasetpic.png", width="300",height="300">
 </p> 
 
