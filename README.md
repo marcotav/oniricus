@@ -1,4 +1,4 @@
-# Time-Series using ARMAX in Python
+# Multiple Time-Series Modelling with VAR in Python
 
 <p align="center">
   <img src="plotARMAX.png" 
@@ -14,22 +14,4 @@
 
 <a id = 'intro'></a>
 ## Introduction
-
-A simple case of ARMAX process is:
-
-&nbsp;&nbsp;&nbsp;&nbsp;
-<p align="center">
-  <img src="ARMAX.png" 
-       width="200">
-</p>
-where x is a covariate. Note that the covariate coefficient is not straightforward to interpret. Its value is not, as in the case of linear regressions, the effect of x on y when the former increases by one unit, but its interpretation depends on the previous values of the response y.
-
-<a id = 'data'></a>
-## Data
-
-For concreteness, let us consider the following data set:
-
-<p align="center">
-  <img src="datasetpic.png", width="300",height="300">
-</p> 
 
