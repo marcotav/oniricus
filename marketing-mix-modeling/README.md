@@ -47,38 +47,34 @@ from statsmodels.compat import lzip
 
 ## Table of contents
 
-- [Introduction](#Introduction)
+- [Introduction](#Introduction and Goal)
+- [Goal](#Goal)
 - [Data](#Data)
 - [Functional Form](#Functional-Form)
 - [Baseline](#Baseline)
 - [Dynamics](#Dynamics)
 - [Trend and seasonality](#Trend-and-seasonality)
 
-## Introduction
+
+<a id = 'Introduction'></a>
+## Introduction and Goal
+[[go back to the top]](#Table-of-contents)
 
 In Marketing mix modeling (MMM) statistical models are used to:
-- Understand the relationship between sales (or volume) and the time series of different marketing channels 
-- Forecast the impact of future marketing tactics.
-- Optimize advertising mix and promotional tactics with respect to the ROI.
-
-## Goal
-
-Our goal here is to build a model for the `sales` variable in our dataset. This involves:
-- Determining which variables have the highest predictive power
-- Determining the best functional form for the series (using the Box-Cox test)
-- Testing if using OLS is appropriate or if we should use non-linear metrics
-- Determine how to incorporate digital media into the model
-- Calculate the baseline volume (in the absence of advertising)
+- Understand the relationship between sales and the time series of different marketing channels 
+- Forecast the impact of future marketing tactics
+- Optimize advertising mix and promotional tactics with respect to the revue of ROI (return on investment)
+The goal here is to build a model for the `sales` variable in our dataset
 
 ## Data
 
 The data imported below contains:
 - Weather variables (`sunshine`, `precipitation`, `temperature`)
-- Competitor's expenditures
-- Macroeconomical data `cpi`(Consumer Price Index),`cci`(Commodity channel index) and the `gdp`
+- Competitors' expenditures
+- Consumer Price Index `cpi`
 - Impressions on different media channels 
-- Event data (calendar information)
-- Average prices of company's products
+- Event data (calendar)
+- Average price of company's products
 
 df = pd.read_csv('dataMMMv11.csv',index_col=0)
 df.head()
