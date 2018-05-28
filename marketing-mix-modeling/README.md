@@ -14,40 +14,9 @@
   <a href="#eig"> Component weights with corresponding variables for the PCs </a> 
 </p> 
 
-
-<a id = 'expvar'></a>
-### 
-### Author: [Marco Tavora](http://www.marcotavora.me/)
-
-<a id = 'intro'></a>
-### Introduction
-import datetime  
-import numpy as np  
-import pandas as pd
-import numpy.random as random
-import statsmodels
-import statsmodels.api as sm
-import statsmodels.tsa as tsa
-import statsmodels.formula.api as smf
-import auxiliar_functions as af
-pd.set_option('display.max_columns', None) 
-from IPython.core.interactiveshell import InteractiveShell
-InteractiveShell.ast_node_interactivity = "all" 
-from datetime import datetime
-from matplotlib import pyplot as plt
-from statsmodels.tsa.seasonal import seasonal_decompose
-from pylab import rcParams
-from scipy.stats import boxcox
-from matplotlib import pyplot
-from scipy import stats
-import scipy
-import statsmodels.stats.api as sms
-from statsmodels.compat import lzip
-%matplotlib inline
-
 ## Table of contents
 
-- [Introduction](#Introduction and Goal)
+- [Introduction](#Introduction)
 - [Goal](#Goal)
 - [Data](#Data)
 - [Functional Form](#Functional-Form)
