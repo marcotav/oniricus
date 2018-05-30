@@ -6,12 +6,7 @@
 
 <p align="center">
   <a href="#intro"> Introduction </a> •
-  <a href="#goal"> Goal </a> •
-  <a href="#imp"> Importing data </a> •
-  <a href="#corr"> Correlations </a> •
-  <a href="#fit"> Fitting a PCA </a> •
-  <a href="#expvar"> Plotting the variance explained ratio of the PC </a> •
-  <a href="#eig"> Component weights with corresponding variables for the PCs </a> 
+  <a href="#goal"> Goal </a> 
 </p> 
 
 <a id = 'intro'></a>
