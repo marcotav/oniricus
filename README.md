@@ -34,27 +34,9 @@ The VECM model is given by:
        width="900">
 </p>
 
+where the components of the **y** vector are the SPY and the SHY series. If both series are cointegrated, this information is included in the model via error correction terms. 
 
-
-
-where we ${y_{1,t}}$ is the SPY and ${y_{1,t}}$ is the SHY. If both series are cointegrated, this information is included in the model via the error correction terms:
-
-$${\alpha _i}({\beta _0}\, + {\beta _1}{y_{1,t - 1}}\, + {\beta _2}{y_{2,t - 1}}),\,\,\,\,\,i = 1,2$$
-
-where 
-
-$$({\beta _0}\, + {\beta _1}{y_{1,t - 1}}\, + {\beta _2}{y_{2,t - 1}}),\,\,\,\,\,i = 1,2$$
-
-corresponds to the long-run. If in the long-run the last equation is zero we have the folowing relation:
-
-$$\,{y_{2,t - 1}} =  - ({\beta _0}/{\beta _2})\, - ({\beta _1}/{\beta _2}){y_{1,t - 1}}$$
-
-Hence, the $\beta$s we obtain after fitting the VECM inform us about the equilibrium relationship between the time series. When the two series deviate from equilibrium, the $\alpha$s "push them back".
-
-We will choose $y_1$ and $y_2$ to be the following time series:
-- SPY (the S&P 500 exchange traded fund)
-- SHY (iShares 1-3 year Treasury Bond) prices. 
-
+"
 # install.packages('ggplot2')
 # install.packages('xts')
 # install.packages('quantmod')
@@ -64,7 +46,7 @@ We will choose $y_1$ and $y_2$ to be the following time series:
 # install.packages("knitr")
 # install.packages("vars")
 # install.packages("urca")
-
+"
 To load the data we will use the library `quantmod` which contains the function `getSymbols`. 
 
 From the [documents](https://www.rdocumentation.org/packages/quantmod/versions/0.4-13/topics/getSymbols)
