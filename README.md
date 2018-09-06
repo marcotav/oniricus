@@ -19,7 +19,7 @@ A simple model for option hedging based on cointegrated vectors is:
 </p>
 <br>
 
-The inclusion of a *stationary* process ${z_t}$ presupposes that in the long-run, stationarity is eventually achieved. Note also that only one $\gamma_i$ is independent due to cointegration parametric invariance. The volatility is a simple GARCH(1,1) process. To control for growth and violation of mean reverting behavior, we added a deterministic term to ${z_t}$ process.
+The inclusion of a *stationary* process z presupposes that in the long-run, stationarity is eventually achieved. The volatility is a simple GARCH(1,1) process. To control for growth and violation of mean reverting behavior, we added a deterministic term to z process.
 
 ## Conceptual Bird's Eye Review
 [[go back to the top]](#Table-of-contents)
@@ -28,35 +28,14 @@ The inclusion of a *stationary* process ${z_t}$ presupposes that in the long-run
 
 The VECM model is given by:
 
-$$\,\left[ {\begin{array}{*{20}{c}}
-{\Delta {y_{1,t}}}\\
-{\Delta {y_{2t}}}
-\end{array}} \right] = \left[ {\begin{array}{*{20}{c}}
-{{\gamma _{01}}}\\
-{{\gamma _{02}}}
-\end{array}} \right] + \left[ {\begin{array}{*{20}{c}}
-{{\alpha _1}}\\
-{{\alpha _2}}
-\end{array}} \right]\left[ {{\beta _0}\,\,\,{\beta _1}\,\,\,{\beta _2}} \right]\left[ {\begin{array}{*{20}{c}}
-1\\
-{{y_{1,t - 1}}}\\
-{{y_{2,t - 1}}}
-\end{array}} \right] + \left[ {\begin{array}{*{20}{c}}
-{{\gamma _{11}}}&{{\gamma _{21}}}\\
-{{\gamma _{12}}}&{{\gamma _{22}}}
-\end{array}} \right]\,\,\left[ {\begin{array}{*{20}{c}}
-{\Delta {y_{1,t - 1}}}\\
-{\Delta {y_{2,t - 1}}}
-\end{array}} \right] + \left[ {\begin{array}{*{20}{c}}
-{{\gamma _{31}}}&{{\gamma _{41}}}\\
-{{\gamma _{32}}}&{{\gamma _{42}}}
-\end{array}} \right]\,\,\left[ {\begin{array}{*{20}{c}}
-{\Delta {y_{1,t - 2}}}\\
-{\Delta {y_{2,t - 2}}}
-\end{array}} \right] + \left[ {\begin{array}{*{20}{c}}
-{{\nu _{1,t}}}\\
-{{\nu _{2,t}}}
-\end{array}} \right]$$
+<br>
+<p align="center">
+  <img src="images/VECM.png" 
+       width="900">
+</p>
+
+
+
 
 where we ${y_{1,t}}$ is the SPY and ${y_{1,t}}$ is the SHY. If both series are cointegrated, this information is included in the model via the error correction terms:
 
