@@ -14,18 +14,10 @@ A simple model for option hedging based on cointegrated vectors is:
 <br>
 <br>
 <p align="center">
-  <img src="modeloptions.png" 
-       width="350">
+  <img src="images/modeloptions.png" 
+       width="400">
 </p>
 <br>
-
-
-\begin{eqnarray}
-&& \ln \left( {\frac{{S_t^{(i)}}}{{S_{t - 1}^{(i)}}}} \right) = {r_f} - d_t^{(i)} - \frac{1}{2}{(\sigma _t^{(i)})^2} + {\eta _i}\sigma _t^{(i)} + z_{t - 1}^{(j)}{\xi _i} + \vec \sigma _t^{(i)} \cdot \varepsilon _t^{(i)} \nonumber\\
-&&{{\vec \sigma }_t} = {{\vec \beta }_0} + ({{\vec \beta }_1} + {{\vec \beta }_2}||{{\vec \varepsilon }_{t - 1}} - \vec \theta |{|^2}) \cdot \vec \sigma _{t - 1}^2\nonumber\\
-&&{z_t} = \alpha + \beta t+ {\gamma _1}\ln (S_t^{(1)}) + {\gamma _2}\ln (S_t^{(2)})
-\end{eqnarray}
-
 
 The inclusion of a *stationary* process ${z_t}$ presupposes that in the long-run, stationarity is eventually achieved. Note also that only one $\gamma_i$ is independent due to cointegration parametric invariance. The volatility is a simple GARCH(1,1) process. To control for growth and violation of mean reverting behavior, we added a deterministic term to ${z_t}$ process.
 
