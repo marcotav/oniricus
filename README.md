@@ -36,7 +36,8 @@ The VECM model is given by:
 
 where the components of the **y** vector are the SPY and the SHY series. If both series are cointegrated, this information is included in the model via error correction terms. 
 
-"
+
+```
 # install.packages('ggplot2')
 # install.packages('xts')
 # install.packages('quantmod')
@@ -46,7 +47,10 @@ where the components of the **y** vector are the SPY and the SHY series. If both
 # install.packages("knitr")
 # install.packages("vars")
 # install.packages("urca")
-"
+
+```
+
+
 To load the data we will use the library `quantmod` which contains the function `getSymbols`. 
 
 From the [documents](https://www.rdocumentation.org/packages/quantmod/versions/0.4-13/topics/getSymbols)
@@ -55,6 +59,7 @@ From the [documents](https://www.rdocumentation.org/packages/quantmod/versions/0
 
 In our case we will load data from Yahoo Finance.
 
+```
 rm(list=ls()) 
 library(tseries)
 library(dynlm)
@@ -66,13 +71,15 @@ library(car)
 library(sandwich)
 library(knitr)
 library(forecast) 
-
 library(quantmod)
+
 setSymbolLookup(SHY='yahoo',SPY='yahoo')
 getSymbols(c('SHY','SPY'))  
 
+```
 Defining `y1` and `y2` as the adjusted prices and joining them:
 
+```
 y1 <- SPY$SPY.Adjusted
 y2 <- SHY$SHY.Adjusted
 time_series <- cbind(y1, y2)
@@ -80,8 +87,10 @@ print('Our dataframe is:')
 colnames(time_series) <- c('SHY', 'SPY') 
 head(time_series)
 
+```
 We can check for stationary of the series individually:
 
+```
 adf.test(time_series$SHY)
 adf.test(time_series$SPY)
 
@@ -95,36 +104,41 @@ plot.ts(time_series$SHY,
 plot.ts(time_series$SPY, 
         type='l')
 
+```
 ### Johansen Test for Cointegration
 
 The most well known cointegration test is the Johansen test which estimates the VECM parameters and determines whether the determinant of 
 
-$$\alpha \beta = \left[ {\begin{array}{*{20}{c}}
-{{\alpha _1}}\\
-{{\alpha _2}}
-\end{array}} \right]\left[ {{\beta _0}\,\,\,{\beta _1}\,\,\,{\beta _2}} \right]$$
+br>
+<p align="center">
+  <img src="images/alphabeta.png" 
+       width="900">
+</p>
+
+is zero or not. If the determinant is not zero, the series are cointegrated.
 
 
-is zero or not. If $\alpha \beta\neq 0$, the series are cointegrated.
-
+```
 library(urca)
 
 johansentest <- ca.jo(time_series, type = "trace", ecdet = "const", K = 3)
 summary(johansentest)
 
-The lines $r=0$ and $r\le 1$ are the results of the test. More specifically:
+```
+The lines r=0 and r<= 1$ are the results of the test. More specifically:
 
-- line $r=0$: these are the results of the hypothesis test with null hypothesis $r=0$. More concretely, this test checks if the matrix has zero rank. In the present case the hypothesis is rejected since the test variable is well above the $1\%$ value;
-- line $r\le 1$: these are the results of the hypothesis test $r\le 1$. Now since the test value is below the $1\%$ value value we fail to reject the null hypothesis. Hence we conclude that the rank of $\alpha \beta$ is 1 and therefore the two series are cointegrated and we can use the VECM model.
+- line r=0: these are the results of the hypothesis test with null hypothesis $r=0$. More concretely, this test checks if the matrix has zero rank. In the present case the hypothesis is rejected since the test variable is well above the $1\%$ value;
+- line r<=1: these are the results of the hypothesis test $r\le 1$. Now since the test value is below the $1\%$ value value we fail to reject the null hypothesis. Hence we conclude that the rank of $\alpha \beta$ is 1 and therefore the two series are cointegrated and we can use the VECM model.
 
-Note that if hypotheses were reject we would have $r=2$ corresponding to two stationary series.
+Note that if hypotheses were reject we would have r=2 corresponding to two stationary series.
 
 ### Fitting the VECM
 
+```
 t <- cajorls(johansentest, r = 1)
 t
 
-The $\beta$ coefficients are given above. The $\gamma$ coefficients are above the $beta$s in the output.
+```
 
 ## TO BE CONTINUED
 
