@@ -112,7 +112,7 @@ The most well known cointegration test is the Johansen test which estimates the 
 br>
 <p align="center">
   <img src="images/alphabeta.png" 
-       width="900">
+       width="200">
 </p>
 
 is zero or not. If the determinant is not zero, the series are cointegrated.
