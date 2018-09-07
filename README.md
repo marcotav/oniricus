@@ -93,11 +93,38 @@ We can check for stationary of the series individually:
 ```
 adf.test(time_series$SHY)
 adf.test(time_series$SPY)
+```
+The output is:
+```
+	Augmented Dickey-Fuller Test
 
+data:  time_series$SHY
+Dickey-Fuller = -1.5363, Lag order = 14, p-value = 0.7747
+alternative hypothesis: stationary
+
+	Augmented Dickey-Fuller Test
+
+data:  time_series$SPY
+Dickey-Fuller = -3.7478, Lag order = 14, p-value = 0.02158
+alternative hypothesis: stationary
+
+```
+The p-values are obtained using:
+
+```
 print('p-values:')
 adf.test(time_series$SHY)$p.value
 adf.test(time_series$SPY)$p.value
+```
+giving:
+```
+[1] "p-values:"
+0.774665887814869
+0.0215848302364735
 
+```
+Plotting the series we obtain:
+```
 par(mfrow = c(2,1))
 plot.ts(time_series$SHY,
         type='l')
@@ -105,6 +132,8 @@ plot.ts(time_series$SPY,
         type='l')
 
 ```
+
+
 ### Johansen Test for Cointegration
 
 The most well known cointegration test is the Johansen test which estimates the VECM parameters and determines whether the determinant of 
