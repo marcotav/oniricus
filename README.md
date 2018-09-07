@@ -2,12 +2,7 @@
 
 ### Notebook by [Marco Tavora](https://marcotavora.me/)
 
-## Table of contents
-
-1. [Introduction](#Introduction)
-
 ## Introduction
-[[go back to the top]](#Table-of-contents)
 
 A simple model for option hedging based on cointegrated vectors is:
 
@@ -22,7 +17,6 @@ A simple model for option hedging based on cointegrated vectors is:
 The inclusion of a *stationary* process z presupposes that in the long-run, stationarity is eventually achieved. The volatility is a simple GARCH(1,1) process. To control for growth and violation of mean reverting behavior, we added a deterministic term to z process.
 
 ## Conceptual Bird's Eye Review
-[[go back to the top]](#Table-of-contents)
 
 ### Vector Error Correction Model VECM
 
@@ -49,7 +43,6 @@ where the components of the **y** vector are the SPY and the SHY series. If both
 # install.packages("urca")
 
 ```
-
 
 To load the data we will use the library `quantmod` which contains the function `getSymbols`. 
 
@@ -133,6 +126,19 @@ plot.ts(time_series$SPY,
 
 ```
 
+<br>
+<p align="center">
+  <img src="images/plotSHY.png" 
+       width="600">
+</p>
+<br>
+
+<br>
+<p align="center">
+  <img src="images/plotSPY.png" 
+       width="600">
+</p>
+<br>
 
 ### Johansen Test for Cointegration
 
@@ -146,7 +152,6 @@ br>
 
 is zero or not. If the determinant is not zero, the series are cointegrated.
 
-
 ```
 library(urca)
 
@@ -154,7 +159,40 @@ johansentest <- ca.jo(time_series, type = "trace", ecdet = "const", K = 3)
 summary(johansentest)
 
 ```
-The lines r=0 and r<= 1$ are the results of the test. More specifically:
+The result is:
+```
+###################### 
+# Johansen-Procedure # 
+###################### 
+
+Test type: trace statistic , without linear trend and constant in cointegration 
+
+Eigenvalues (lambda):
+[1] 2.248927e-02 3.620157e-03 4.437196e-18
+
+Values of teststatistic and critical values of test:
+
+          test 10pct  5pct  1pct
+r <= 1 | 10.65  7.52  9.24 12.97
+r = 0  | 77.46 17.85 19.96 24.60
+
+Eigenvectors, normalised to first column:
+(These are the cointegration relations)
+
+             SHY.l3      SPY.l3  constant
+SHY.l3      1.00000      1.0000   1.00000
+SPY.l3    -84.59851    163.3147  -8.78908
+constant 6927.78683 -12622.5372 543.67420
+
+Weights W:
+(This is the loading matrix)
+
+            SHY.l3        SPY.l3      constant
+SHY.d 2.147229e-05  1.049741e-04 -1.531138e-17
+SPY.d 2.088562e-05 -1.870590e-06  1.148836e-17
+```
+
+The lines r=0 and r<= 1 are the actual results of the test. More specifically:
 
 - line r=0: these are the results of the hypothesis test with null hypothesis $r=0$. More concretely, this test checks if the matrix has zero rank. In the present case the hypothesis is rejected since the test variable is well above the $1\%$ value;
 - line r<=1: these are the results of the hypothesis test $r\le 1$. Now since the test value is below the $1\%$ value value we fail to reject the null hypothesis. Hence we conclude that the rank of $\alpha \beta$ is 1 and therefore the two series are cointegrated and we can use the VECM model.
