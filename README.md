@@ -10,7 +10,7 @@ A simple model for option hedging based on cointegrated vectors is:
 <br>
 <p align="center">
   <img src="images/modeloptions.png" 
-       width="400">
+       width="450">
 </p>
 <br>
 
@@ -25,7 +25,7 @@ The VECM model is given by:
 <br>
 <p align="center">
   <img src="images/VECM.png" 
-       width="900">
+       width="800">
 </p>
 
 where the components of the **y** vector are the SPY and the SHY series. If both series are cointegrated, this information is included in the model via error correction terms. 
@@ -129,14 +129,14 @@ plot.ts(time_series$SPY,
 <br>
 <p align="center">
   <img src="images/plotSHY.png" 
-       width="600">
+       width="800">
 </p>
 <br>
 
 <br>
 <p align="center">
   <img src="images/plotSPY.png" 
-       width="600">
+       width="800">
 </p>
 <br>
 
